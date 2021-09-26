@@ -1,1 +1,173 @@
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1;">
+        <title>progress of day</title>
 
+        <style type="text/css">
+            @font-face {
+	            font-family: "TW";
+	            src: url("fonts/clock.ttf");
+            }
+
+            body {
+              color: #ffffff;
+
+              background-image: url(back2.jpg);
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover;
+              
+            }
+
+
+            #title_text{
+              padding: 10px;
+            }
+
+            #menu_left{
+              backdrop-filter: blur(24px);
+            }
+
+            #menu_title_day{
+              padding: 25px;
+            }
+
+            #padding{
+              padding-top: 25px;
+            }
+
+            #menu_title_week{
+              padding-right: 25px;
+              padding-left: 25px;
+              padding-bottom: 25px;
+            }
+
+            #day_progress{
+              padding: 25px;
+            }
+
+            #week_progress{
+              padding: 25px;
+            }
+
+            #help_zone {
+              float: right;
+              padding-right: 5px;
+              padding-top: 1%;
+            }
+
+            #help {
+              float: right;
+            }
+
+            #help_icon {
+              float: left;
+            }
+
+        </style>
+
+        <script>
+          function dayMouseover(){
+            document.getElementById("help").innerText = "今日一日が何%進んだかを示しています。";
+          }
+
+          function weekMouseover(){
+            document.getElementById("help").innerText = "月曜日から金曜日までの進捗状況を示しています。休日になると100%を超えます。";
+          }
+
+          function Mouseout(){
+            document.getElementById("help").innerText = "";
+          }
+
+        </script>
+
+    </head>
+    
+    <body>
+
+      <div id=main style="height:100%; width:100%" >
+
+        
+        <div id="help_zone">
+          <img id="help_icon" src="help.png">
+          <div id="help"></div> <br>
+          <hr color="white">
+        </div>
+
+        <div id=menu style="height:100%; width:100%">
+
+          <div id=menu_left style="height:100%; width:50%">
+
+            <div id=title_text>
+              <h1>Progress of day</h1>
+            </div>
+
+            <div id=menu_title_day onmouseover="dayMouseover();" onmouseout="Mouseout();">
+              <h3>day</h3>
+              <hr width=”50%”>
+            </div>
+
+            <div id="day_progress" onmouseover="dayMouseover();" onmouseout="Mouseout();">
+              <progress id="dayProgressBar" max="100" value="0" style="width: 80%;">  </progress> <br>
+              <div id="dayProgressText"></div>
+            </div>
+
+            <div id="padding"></div>
+
+            <div id=menu_title_week onmouseover="weekMouseover();" onmouseout="Mouseout();">
+              <h3>week</h3>
+              <hr width=”50%”>
+            </div>
+
+            <div id="week_progress" onmouseover="weekMouseover();" onmouseout="Mouseout();">
+              <progress id="weekProgressBar" max="100" value="0" style="width: 80%;">  </progress> <br>
+              <div id="weekProgressText"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <script>
+        function progress() {
+          var now = new Date();
+          var Year = now.getFullYear();
+          var Month = now.getMonth()+1;
+          var Day = now.getDate();
+          var DayNum = now.getDay();
+
+          if (DayNum == 0) {
+            var DayNum = 7
+          }
+
+          var lastMonday = Day - DayNum + 1;
+
+
+          const todayStartTime = new Date(Year + "/" + Month + "/" + Day).getTime();
+          const mondayMilliSec = new Date(Year + "/" + Month + "/" + lastMonday).getTime();
+        
+          const todayMilliSec = Date.now() - todayStartTime;
+          const weekMilliSec = Date.now() - mondayMilliSec;
+
+          var dayProgress = todayMilliSec / 86400000 * 100;
+          var weekProgress = weekMilliSec / 432000000 * 100;
+
+          var dayProgressText = Math.round( dayProgress * 100000) / 100000 ;
+          var weekProgressText = Math.round( weekProgress * 10000000) / 10000000 ;
+
+
+          document.getElementById("dayProgressBar").value = dayProgress;
+          document.getElementById("dayProgressText").innerHTML = dayProgressText + "%";
+
+          document.getElementById("weekProgressBar").value = weekProgress;
+          document.getElementById("weekProgressText").innerHTML = weekProgressText + "%";
+        }
+        setInterval(progress, 500);
+      </script>
+
+    </body>
+</html>
