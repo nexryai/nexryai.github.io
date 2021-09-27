@@ -1,21 +1,119 @@
-<html><head><style>body {
-   color: black;
-}
-</style></head><body><h2 id="beaver-">beaverについて</h2>
-<p>beaver（ビーバー）はカスタマイズされたLinuxのイメージをビルドするkiwi-ngを使いやすくするラッパーです。</p>
-<h3 id="-">利点</h3>
-<p>・国際化やメンテナンスが非常にしやすくなります。<br> 
-・openSUSE、fedora、ubuntuなど複数のディストリビューションをベースにカスタマイズできます。<br></p>
-<h2 id="-">利用方法</h2>
-<h3 id="-">依存関係</h3>
-<p>kiwi-ng (インストールについてのヘルプは <a href="https://osinside.github.io/kiwi/installation.html">https://osinside.github.io/kiwi/installation.html</a> を参照してください)</p>
-<h3 id="-">基本的な使い方</h3>
-<p><code>./build.sh -t PATH_TO_TARGET_DIR</code>を実行すればビルドが自動的に完了します。</p>
-<h3 id="-">オプション</h3>
-<p><code>-t</code> <code>--target</code>　・・・ビルドするターゲットを指定します。 <br>
-<code>-l</code> <code>--lang</code>　・・・言語を指定します。ターゲットでサポートされている言語以外（利用したい言語のコードが<code>TARGET_DIR/I18n/</code>に存在しない場合）は利用できません。 <br>
-<code>-d</code> <code>--docker</code>　・・・Dockerコンテナを利用してビルドします。<em>この機能は現在開発中で利用できません。</em> <br></p>
-<p><br></p>
-<h2 id="-">開発サイクル</h2>
-<p>メインの開発自体はAlexandrite OSのレポジトリ（<a href="https://github.com/nexryai/project-alexandrite">https://github.com/nexryai/project-alexandrite</a> ）で行っています。</p>
-</body></html>
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>beaver developer</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/source-code.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/source-code.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/source-code.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><a href="index.html"><img src="images/source-code.png"/></a>    Beaver developers</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search">
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            
+            <h3 id="beaver-">beaverについて</h3>
+            <p>beaver（ビーバー）はカスタマイズされたLinuxのイメージをビルドするkiwi-ngを使いやすくするラッパーです。</p>
+            <h4 id="-">利点</h4>
+            <p>・国際化やメンテナンスが非常にしやすくなります。<br> 
+              ・openSUSE、fedora、ubuntuなど複数のディストリビューションをベースにカスタマイズできます。<br></p>
+            <h3 id="-">利用方法</h3>
+            <h4 id="-">依存関係</h4>
+            <p>kiwi-ng (インストールについてのヘルプは <a href="https://osinside.github.io/kiwi/installation.html">https://osinside.github.io/kiwi/installation.html</a> を参照してください)</p>
+            <h4 id="-">基本的な使い方</h4>
+            <p><code>./build.sh -t PATH_TO_TARGET_DIR</code>を実行すればビルドが自動的に完了します。</p>
+            <h4 id="-">オプション</h4>
+            <p><code>-t</code> <code>--target</code>　・・・ビルドするターゲットを指定します。 <br>
+            <code>-l</code> <code>--lang</code>　・・・言語を指定します。ターゲットでサポートされている言語以外（利用したい言語のコードが<code>TARGET_DIR/I18n/</code>に存在しない場合）は利用できません。 <br>
+            <code>-d</code> <code>--docker</code>　・・・Dockerコンテナを利用してビルドします。<em>この機能は現在開発中で利用できません。</em> <br></p>
+            <p><br></p>
+            <h3 id="-">開発サイクル</h3>
+            <p>次のページを参照（<a href="devel.html">開発サイクル</a> ）</p>
+          </div>
+        </div>
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="https://github.com/nexryai/beaver-universal">GitHub</a></li>
+              <li>©2021 nexryai</li>
+              <li><a href="https://icons8.com/icon/">icon by Icons8</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <a href="https://github.com/nexryai/beaver-universal" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">GitHub</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>

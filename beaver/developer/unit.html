@@ -1,22 +1,121 @@
-<html><head><style>body {
-   color: black;
-}
-</style></head><body><h2 id="-">ユニットとは、ユニットのことです。</h2>
-<p><strong>この機能は現在開発中で利用できません。</strong> <br>
-ユニットは、複数のパッケージや設定ファイルをまとめ、ディストロ作成に当たって面倒な部分をプリセット化する機能です。これによって開発の負担を大幅に減らすことができます。ユニットはオーバーレイファイル、パッケージリスト、シェルスクリプトから成り立ちます。<br><br>
-例えば本来はイメージにcalamaresを実装する際、パッケージリストにcalamaresを追加したりオーバーレイディレクトリ内で設定ファイルを記述しなければなりません。<br> 「このままではいけないと思います。だからこそbeaverはこのままではいけないと思っています。」そこで登場するのがユニットです。ユニット機能を使うと僅か1行で同じことが実現します。</p>
-<h2 id="-">ユニット一覧</h2>
-<h3 id="calamares">calamares</h3>
-<p>システムインストーラーです。</p>
-<h3 id="kde">KDE</h3>
-<p>KDEの基本的なパッケージです。ライブ環境における自動ログインもサポートします。</p>
-<h3 id="gnome">Gnome</h3>
-<p>Gnomeの基本的なパッケージです。ライブ環境における自動ログインもサポートします。</p>
-<h3 id="security">Security</h3>
-<p>セキュリティに関する設定ファイルが含まれます。</p>
-<h2 id="-">ユニットの構造</h2>
-<p>このセクションは内部構造について説明しています。<strong>通常は読み飛ばして構いません。</strong><br>
-ユニットは<code>build.sh</code>がモジュール<code>load_unit</code>を実行することでロードされます。モジュールとは簡単に言うとbeaverの機能のことです。モジュールは<code>build.sh</code>内で定義されている<code>run-module</code>関数を呼び出すことで実行されます。</p>
-<h2 id="-">ユニットを使うには</h2>
-<p>現在、ユニットに対応する予定のディストリビューションはubuntuとopenSUSEのみです。<code>unit.conf</code>にどのユニットを利用するかを記述します。</p>
-</body></html>
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>beaver developer</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/source-code.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/source-code.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/source-code.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><a href="index.html"><img src="images/source-code.png"/></a>  Beaver developers</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search">
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            
+            <h3>ユニットとは、ユニットのことです。</h3>
+            <p><strong>この機能は現在開発中で利用できません。</strong> <br>
+            ユニットは、複数のパッケージや設定ファイルをまとめ、ディストロ作成に当たって面倒な部分をプリセット化する機能です。これによって開発の負担を大幅に減らすことができます。ユニットはオーバーレイファイル、パッケージリスト、シェルスクリプトから成り立ちます。<br><br>
+            例えば本来はイメージにcalamaresを実装する際、パッケージリストにcalamaresを追加したりオーバーレイディレクトリ内で設定ファイルを記述しなければなりません。<br> 「このままではいけないと思います。だからこそbeaverはこのままではいけないと思っています。」そこで登場するのがユニットです。ユニット機能を使うと僅か1行で同じことが実現します。</p>
+            <h3>ユニット一覧</h3>
+            <h4 id="calamares">calamares</h4>
+            <p>システムインストーラーです。</p>
+            <h4 id="kde">KDE</h4>
+            <p>KDEの基本的なパッケージです。ライブ環境における自動ログインもサポートします。</p>
+            <h4 id="gnome">Gnome</h4>
+            <p>Gnomeの基本的なパッケージです。ライブ環境における自動ログインもサポートします。</p>
+            <h4 id="security">Security</h4>
+            <p>セキュリティに関する設定ファイルが含まれます。</p>
+            <h3>ユニットの構造</h3>
+            <p>このセクションは内部構造について説明しています。<strong>通常は読み飛ばして構いません。</strong><br>
+            ユニットは<code>build.sh</code>がモジュール<code>load_unit</code>を実行することでロードされます。モジュールとは簡単に言うとbeaverの機能のことです。モジュールは<code>build.sh</code>内で定義されている<code>run-module</code>関数を呼び出すことで実行されます。</p>
+            <h3>ユニットを使うには</h3>
+            <p>現在、ユニットに対応する予定のディストリビューションはubuntuとopenSUSEのみです。<code>unit.conf</code>にどのユニットを利用するかを記述します。</p>
+
+          </div>
+        </div>
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="https://github.com/nexryai/beaver-universal">GitHub</a></li>
+              <li>©2021 nexryai</li>
+              <li><a href="https://icons8.com/icon/">icon by Icons8</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <a href="https://github.com/nexryai/beaver-universal" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">GitHub</a>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>
