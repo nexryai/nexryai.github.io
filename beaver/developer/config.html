@@ -82,29 +82,18 @@
           <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
           <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             
-            <h3>ユニットとは、ユニットのことです。</h3>
-            <p><strong>この機能は現在開発中で利用できません。</strong> <br>
-            ユニットは、複数のパッケージや設定ファイルをまとめ、ディストロ作成に当たって面倒な部分をプリセット化する機能です。これによって開発の負担を大幅に減らすことができます。ユニットはオーバーレイファイル、パッケージリスト、シェルスクリプトから成り立ちます。<br><br>
-            例えば本来はイメージにcalamaresを実装する際、パッケージリストにcalamaresを追加したりオーバーレイディレクトリ内で設定ファイルを記述しなければなりません。<br> 「このままではいけないと思います。だからこそbeaverはこのままではいけないと思っています。」そこで登場するのがユニットです。ユニット機能を使うと僅か1行で同じことが実現します。</p>
-            <h3>ユニット一覧</h3>
-            <h4 id="calamares">calamares</h4>
-            <p>システムインストーラーです。</p>
-            <h4 id="kde">KDE</h4>
-            <p>KDEの基本的なパッケージです。ライブ環境における自動ログインもサポートします。</p>
-            <h4 id="gnome">Gnome</h4>
-            <p>Gnomeの基本的なパッケージです。ライブ環境における自動ログインもサポートします。</p>
-            <h4 id="security">GUI base</h4>
-            <p>GUIを使用する際の設定が含まれます。gnomeやkdeユニットを利用している場合は不要です。</p>
-            <h4>plymouth</h4>
-            <p>plymouth関連の設定とパッケージが含まれます。</p>
-            <h4>grub-theme</h4>
-            <p>grubをよりグラフィカルにする設定が含まれます。</p>
-            <h3>ユニットの構造</h3>
-            <p>このセクションは内部構造について説明しています。<strong>通常は読み飛ばして構いません。</strong><br>
-            ユニットは<code>build.sh</code>がモジュール<code>load_unit</code>を実行することでロードされます。モジュールとは簡単に言うとbeaverの機能のことです。モジュールは<code>build.sh</code>内で定義されている<code>run-module</code>関数を呼び出すことで実行されます。</p>
-            <h3>ユニットを使うには</h3>
-            <p>現在、ユニットに対応する予定のディストリビューションはubuntuとopenSUSEのみです。<code>unit.conf</code>にどのユニットを利用するかを記述します。</p>
-
+            <h3>設定ファイル</h3>
+            <p>設定ファイルではビルドしたいシステム（イメージ）の基本的な情報を定義しています。<br>
+            このセクションでは設定ファイルの各項目が意味するものについて説明します。<br>
+             </p>
+            <h4>base.conf</h4>
+            <p>これは極めて重要な設定ファイルです。数多くの項目がありますが、操作する必要がある項目のみ説明します。</p> <br>
+            <p><code>name</code>, <code>specification</code></p>
+            <p>ビルドしたいイメージのOS名を指定します。スペースが含まれないようにしてください。</p> <br>
+            <p><code>version</code></p> 
+            <p>ビルドしたいイメージのバージョンを指定します。数字と小数点のみ記入してください。</p> <br>
+            <p><code>root_password</code>, <code>liveuser_password</code></p>
+            <p>live環境でのユーザーアカウントとrootアカウントのパスワードを設定します。</p><br>
           </div>
         </div>
         <footer class="demo-footer mdl-mini-footer">
