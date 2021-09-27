@@ -1,0 +1,37 @@
+<html><head><style>body {
+   color: black;
+}
+</style></head><body><h2 id="-">ターゲットディレクトリ</h2>
+<p>beaverにビルドさせたいイメージの構成ファイルやパッケージ一覧、オーバーレイディレクトリなどが格納されたディレクトリをまとめてターゲットディレクトリと呼びます。ここではターゲットディレクトリの構造を説明します。</p>
+<h2 id="-">構造</h2>
+<pre><code>.
+├── I18n
+│   ├── en_US
+│   │   ├── locale<span class="hljs-selector-class">.conf</span>
+│   │   ├── locale<span class="hljs-selector-class">.packages</span>
+│   │   └── root
+│   │       └── etc, usr...
+│   │          
+│   └── ja_JP
+│       ├── locale<span class="hljs-selector-class">.conf</span>
+│       ├── locale<span class="hljs-selector-class">.packages</span>
+│       └── root
+│           └── etc, usr...
+│               
+├── base<span class="hljs-selector-class">.conf</span>
+├── bootstrap<span class="hljs-selector-class">.packages</span>
+├── final_process<span class="hljs-selector-class">.sh</span>
+├── main<span class="hljs-selector-class">.packages</span>
+└── root
+    └── boot, etc, usr...
+</code></pre><h3 id="i18n">I18n</h3>
+<p>国際化に関するファイルが格納されています。<code>locale.conf</code>にタイムゾーンなどの設定を記述し、ローカライズ用のパッケージを<code>locale.packages</code>に記述します。<code>root</code>ディレクトリの役割はターゲットディレクトリ直下のオーバーレイディレクトリと同じですがここにはリージョンによって異なるファイルを格納します。</p>
+<h3 id="base-conf">base.conf</h3>
+<p>ビルドしたいイメージの基本となる設定ファイルです。</p>
+<h3 id="-packages">*.packages</h3>
+<p>組み込みたいパッケージを記述します。<code>bootstrap.packages</code>→<code>main.packages</code>の順でインストールされます。</p>
+<h3 id="final_process-sh">final_process.sh</h3>
+<p>一通りのパッケージがインストールされ、オーバーレイディレクトリが上書きされた後、イメージが生成される直前にイメージ上で実行されるスクリプトです。</p>
+<h3 id="root">root</h3>
+<p>オーバーレイディレクトリです。ここの中のディレクトリやファイルがビルドされるイメージに上書きされます。</p>
+</body></html>
