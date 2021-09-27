@@ -87,25 +87,25 @@
             <p>beaverにビルドさせたいイメージの構成ファイルやパッケージ一覧、オーバーレイディレクトリなどが格納されたディレクトリをまとめてターゲットディレクトリと呼びます。ここではターゲットディレクトリの構造を説明します。</p>
             <h3 id="-">構造</h3>
             <pre><code>.
-            ├── I18n
-            │   ├── en_US
-            │   │   ├── locale<span class="hljs-selector-class">.conf</span>
-            │   │   ├── locale<span class="hljs-selector-class">.packages</span>
-            │   │   └── root
-            │   │       └── etc, usr...
-            │   │          
-            │   └── ja_JP
-            │       ├── locale<span class="hljs-selector-class">.conf</span>
-            │       ├── locale<span class="hljs-selector-class">.packages</span>
-            │       └── root
-            │           └── etc, usr...
-            │               
-            ├── base<span class="hljs-selector-class">.conf</span>
-            ├── bootstrap<span class="hljs-selector-class">.packages</span>
-            ├── final_process<span class="hljs-selector-class">.sh</span>
-            ├── main<span class="hljs-selector-class">.packages</span>
-            └── root
-                └── boot, etc, usr...
+├── I18n
+│   ├── en_US
+│   │   ├── locale<span class="hljs-selector-class">.conf</span>
+│   │   ├── locale<span class="hljs-selector-class">.packages</span>
+│   │   └── root
+│   │       └── etc, usr...
+│   │          
+│   └── ja_JP
+│       ├── locale<span class="hljs-selector-class">.conf</span>
+│       ├── locale<span class="hljs-selector-class">.packages</span>
+│       └── root
+│           └── etc, usr...
+│               
+├── base<span class="hljs-selector-class">.conf</span>
+├── bootstrap<span class="hljs-selector-class">.packages</span>
+├── final_process<span class="hljs-selector-class">.sh</span>
+├── main<span class="hljs-selector-class">.packages</span>
+└── root
+     └── boot, etc, usr...
             </code></pre><h4 id="i18n">I18n</h4>
             <p>国際化に関するファイルが格納されています。<code>locale.conf</code>にタイムゾーンなどの設定を記述し、ローカライズ用のパッケージを<code>locale.packages</code>に記述します。<code>root</code>ディレクトリの役割はターゲットディレクトリ直下のオーバーレイディレクトリと同じですがここにはリージョンによって異なるファイルを格納します。</p>
             <h4 id="base-conf">base.conf</h4>
