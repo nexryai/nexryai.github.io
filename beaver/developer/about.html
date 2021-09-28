@@ -88,15 +88,23 @@
             <p>・国際化やメンテナンスが非常にしやすくなります。<br> 
               ・openSUSE、fedora、ubuntuなど複数のディストリビューションをベースにカスタマイズできます。<br></p>
             <h3 id="-">利用方法</h3>
-            <h4 id="-">依存関係</h4>
-            <p>kiwi-ng (インストールについてのヘルプは <a href="https://osinside.github.io/kiwi/installation.html">https://osinside.github.io/kiwi/installation.html</a> を参照してください)</p>
+
+            <h4>依存関係の準備</h4>
+            <p>以下のコマンドを実行し、必要なパッケージをインストールできます。</p> <br>
+            <p>ubuntu</p> <br>
+            <p><code>sudo apt install python3-pip debootstrap qemu-utils mtools xorriso</code> <br> <code>sudo pip install kiwi</code> </p> <br>
+            <p>openSUSE</p> <br>
+            <p><code>sudo zypper install python3-kiwi</code></p>
+
             <h4 id="-">基本的な使い方</h4>
             <p><code>./build.sh -t PATH_TO_TARGET_DIR</code>を実行すればビルドが自動的に完了します。</p>
+
             <h4 id="-">オプション</h4>
             <p><code>-t</code> <code>--target</code>　・・・ビルドするターゲットを指定します。 <br>
             <code>-l</code> <code>--lang</code>　・・・言語を指定します。ターゲットでサポートされている言語以外（利用したい言語のコードが<code>TARGET_DIR/I18n/</code>に存在しない場合）は利用できません。 <br>
             <code>-d</code> <code>--docker</code>　・・・Dockerコンテナを利用してビルドします。<em>この機能は現在開発中で利用できません。</em> <br></p>
             <p><br></p>
+
             <h3 id="-">開発サイクル</h3>
             <p>次のページを参照（<a href="devel.html">開発サイクル</a> ）</p>
           </div>
